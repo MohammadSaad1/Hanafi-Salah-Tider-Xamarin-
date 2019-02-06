@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:HanafiSalahTider"
+             x:Class="HanafiSalahTider.MainPage">
+
+
+
+
+    <Grid >
+    <Image Source="/background.jpg" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" Aspect="AspectFill"/>
+
+    <StackLayout Orientation="Vertical" VerticalOptions="Center" HorizontalOptions="Center" BackgroundColor="WhiteSmoke">
+
+        <Label Text="Bedetider i København"  VerticalOptions="Start" HorizontalOptions="Start"  FontSize="Large" Margin="10"/>
+        
+
+        <StackLayout Orientation="Horizontal" Margin="5">
+            <Label Text="Fajr" FontSize="Medium"/>
+            <Label x:Name="label1" Text="{Binding Instanstider.Fajr}"  />
+        </StackLayout>
+        <StackLayout Orientation="Horizontal" Margin="5">
+            <Label Text="Shuruk" FontSize="Medium"/>
+            <Label x:Name="label2" Text="{Binding Instanstider.Shuruk, Mode=TwoWay}"/>
+        </StackLayout>
+        <StackLayout Orientation="Horizontal" Margin="5" >
+            <Label Text="Dhuhr" FontSize="Medium"/>
+            <Label x:Name="label3" Text="{Binding Instanstider.Dhuhr, Mode=TwoWay}"/>
+        </StackLayout>
+        <StackLayout Orientation="Horizontal" Margin="5" >
+            <Label Text="Asr" FontSize="Medium"/>
+            <Label x:Name="label4" Text="{Binding Instanstider.Asr, Mode=TwoWay}"/>
+        </StackLayout>
+        <StackLayout Orientation="Horizontal" Margin="5" >
+            <Label Text="Maghrib" FontSize="Medium"/>
+            <Label x:Name="label5" Text="{Binding Instanstider.Maghrib, Mode=TwoWay}"/>
+        </StackLayout>
+
+        <StackLayout Orientation="Horizontal" Margin="5" >
+                <Label Text="Isha" FontSize="Medium"/>
+            <Label x:Name="label6" Text="{Binding Instanstider.Isha, Mode=TwoWay}"/>
+            </StackLayout>
+      
+    </StackLayout>
+
+    </Grid>
+
+</ContentPage>
