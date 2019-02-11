@@ -7,7 +7,7 @@ namespace HanafiSalahTider
    public class Tider
     {
 
-        public string Fajr { get; set; }
+        public string  Fajr { get; set; }
         public string Shuruk { get; set; }
 
         public string Dhuhr { get; set; }

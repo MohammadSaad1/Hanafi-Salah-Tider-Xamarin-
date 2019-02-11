@@ -31,6 +31,23 @@ namespace HanafiSalahTider
         {
             string date = dateTime.Year + "   " + dateTime.Month + "   " + dateTime.Day;
 
+            if (!(dateTime.Day > 0) || !(dateTime.Day < 10))
+            { 
+             date = dateTime.Year + "   " + dateTime.Month + "  " + dateTime.Day;
+            }
+
+            else if(!(dateTime.Month > 0) || !(dateTime.Day <10))
+            {
+                 date = dateTime.Year + "  " + dateTime.Month + "   " + dateTime.Day;
+            }
+
+            else if(!(dateTime.Month > 0) || !(dateTime.Day < 10) || !((dateTime.Day > 0) || !(dateTime.Day < 10)))
+            {
+                 date = dateTime.Year + "  " + dateTime.Month + "  " + dateTime.Day;
+            }
+
+
+
             var assembly = IntrospectionExtensions.GetTypeInfo(typeof(ReadFromTxtFile)).Assembly;
             Stream stream = assembly.GetManifestResourceStream("HanafiSalahTider.salahtider2019.txt");
 
@@ -45,7 +62,7 @@ namespace HanafiSalahTider
             {
                 string[] apts = fileContent.Split('\n').Where(x => x.Contains(date)).ToArray();
 
-                prayertimes = apts[0].Split(new[] { "   " }, StringSplitOptions.None);
+                prayertimes = apts[0].Split(new[] { "   ", "  "}, StringSplitOptions.None);
 
                 Instanstider.Fajr = prayertimes[3];
                 Instanstider.Shuruk = prayertimes[4];

@@ -10,35 +10,35 @@
     <Grid >
     <Image Source="/background.jpg" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" Aspect="AspectFill"/>
 
-    <StackLayout Orientation="Vertical" VerticalOptions="Center" HorizontalOptions="Center" BackgroundColor="WhiteSmoke">
+        <StackLayout Orientation="Vertical" VerticalOptions="Center" HorizontalOptions="Center" BackgroundColor="DimGray">
 
-        <Label Text="Bedetider i København"  VerticalOptions="Start" HorizontalOptions="Start"  FontSize="Large" Margin="10"/>
+        <Label Text="Bedetider i København"  VerticalOptions="Start" HorizontalOptions="Start" TextColor="LightGray" FontAttributes="Bold"  FontSize="Large" Margin="10"/>
         
 
-        <StackLayout Orientation="Horizontal" Margin="5">
-            <Label Text="Fajr" FontSize="Medium"/>
-            <Label x:Name="label1" Text="{Binding Instanstider.Fajr}"  />
+        <StackLayout Orientation="Horizontal" Margin="10" HorizontalOptions="Center">
+            <Label Text="Fajr" TextColor="DarkGray" FontSize="Medium"/>
+                <Label x:Name="label1" TextColor="DarkGray"  />
         </StackLayout>
-        <StackLayout Orientation="Horizontal" Margin="5">
-            <Label Text="Shuruk" FontSize="Medium"/>
-            <Label x:Name="label2" Text="{Binding Instanstider.Shuruk, Mode=TwoWay}"/>
+            <StackLayout Orientation="Horizontal" Margin="10" HorizontalOptions="Center">
+                <Label Text="Shuruk" TextColor="DarkGray" FontSize="Medium"/>
+                <Label x:Name="label2" TextColor="DarkGray" />
         </StackLayout>
-        <StackLayout Orientation="Horizontal" Margin="5" >
-            <Label Text="Dhuhr" FontSize="Medium"/>
-            <Label x:Name="label3" Text="{Binding Instanstider.Dhuhr, Mode=TwoWay}"/>
+            <StackLayout  Orientation="Horizontal" Margin="10" HorizontalOptions="Center">
+                <Label Text="Dhuhr" TextColor="DarkGray" FontSize="Medium"/>
+                <Label x:Name="label3" TextColor="DarkGray" />
         </StackLayout>
-        <StackLayout Orientation="Horizontal" Margin="5" >
-            <Label Text="Asr" FontSize="Medium"/>
-            <Label x:Name="label4" Text="{Binding Instanstider.Asr, Mode=TwoWay}"/>
+            <StackLayout Orientation="Horizontal" Margin="10"  HorizontalOptions="Center">
+                <Label Text="Asr" TextColor="DarkGray" FontSize="Medium"/>
+                <Label x:Name="label4" TextColor="DarkGray" />
         </StackLayout>
-        <StackLayout Orientation="Horizontal" Margin="5" >
-            <Label Text="Maghrib" FontSize="Medium"/>
-            <Label x:Name="label5" Text="{Binding Instanstider.Maghrib, Mode=TwoWay}"/>
+            <StackLayout Orientation="Horizontal" Margin="10" HorizontalOptions="Center">
+                <Label Text="Maghrib" TextColor="DarkGray" FontSize="Medium"/>
+                <Label x:Name="label5" TextColor="DarkGray" />
         </StackLayout>
 
-        <StackLayout Orientation="Horizontal" Margin="5" >
-                <Label Text="Isha" FontSize="Medium"/>
-            <Label x:Name="label6" Text="{Binding Instanstider.Isha, Mode=TwoWay}"/>
+            <StackLayout Orientation="Horizontal"  Margin="10" HorizontalOptions="Center">
+                <Label Text="Isha" TextColor="DarkGray" FontSize="Medium"/>
+                <Label x:Name="label6" TextColor="DarkGray" />
             </StackLayout>
       
     </StackLayout>
