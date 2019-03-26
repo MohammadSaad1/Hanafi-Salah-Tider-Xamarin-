@@ -21,9 +21,10 @@ namespace HanafiSalahTider
 
         protected override void OnStart()
         {
-            ReadFromTxtFile readFromTxtFile = new ReadFromTxtFile();
-            readFromTxtFile.getText();
 
+            ReadFromTxtFile readFromTxtFile = new ReadFromTxtFile();
+            readFromTxtFile.getText(DateTime.Now, "HanafiSalahTider.salahtider.txt", "HanafiSalahTider.ishatid.txt");
+            
         }
 
         protected override void OnSleep()
@@ -34,7 +35,7 @@ namespace HanafiSalahTider
         protected override void OnResume()
         {
             ReadFromTxtFile readFromTxtFile = new ReadFromTxtFile();
-            readFromTxtFile.getText();
+            readFromTxtFile.getText(DateTime.Now, "HanafiSalahTider.salahtider.txt", "HanafiSalahTider.ishatid.txt");
         }
     }
 }

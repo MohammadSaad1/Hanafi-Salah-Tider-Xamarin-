@@ -2,46 +2,53 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:HanafiSalahTider"
-             x:Class="HanafiSalahTider.MainPage">
-
-
-
-
+             x:Class="HanafiSalahTider.MainPage"            >
+ 
     <Grid >
-    <Image Source="/background.jpg" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" Aspect="AspectFill"/>
-
-        <StackLayout Orientation="Vertical" VerticalOptions="Center" HorizontalOptions="Center" BackgroundColor="DimGray">
-
-        <Label Text="Bedetider i København"  VerticalOptions="Start" HorizontalOptions="Start" TextColor="LightGray" FontAttributes="Bold"  FontSize="Large" Margin="10"/>
+            <Image   Source="/baggrund.png" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" Aspect="AspectFill"/>
         
 
-        <StackLayout Orientation="Horizontal" Margin="10" HorizontalOptions="Center">
-            <Label Text="Fajr" TextColor="DarkGray" FontSize="Medium"/>
-                <Label x:Name="label1" TextColor="DarkGray"  />
-        </StackLayout>
-            <StackLayout Orientation="Horizontal" Margin="10" HorizontalOptions="Center">
-                <Label Text="Shuruk" TextColor="DarkGray" FontSize="Medium"/>
-                <Label x:Name="label2" TextColor="DarkGray" />
-        </StackLayout>
-            <StackLayout  Orientation="Horizontal" Margin="10" HorizontalOptions="Center">
-                <Label Text="Dhuhr" TextColor="DarkGray" FontSize="Medium"/>
-                <Label x:Name="label3" TextColor="DarkGray" />
-        </StackLayout>
-            <StackLayout Orientation="Horizontal" Margin="10"  HorizontalOptions="Center">
-                <Label Text="Asr" TextColor="DarkGray" FontSize="Medium"/>
-                <Label x:Name="label4" TextColor="DarkGray" />
-        </StackLayout>
-            <StackLayout Orientation="Horizontal" Margin="10" HorizontalOptions="Center">
-                <Label Text="Maghrib" TextColor="DarkGray" FontSize="Medium"/>
-                <Label x:Name="label5" TextColor="DarkGray" />
+        <StackLayout Opacity="30" Margin="70" Orientation="Vertical" HorizontalOptions="FillAndExpand" >
+            
+                <Image   Source="/basmalla.png" HorizontalOptions="Center"/>
+
+                <Picker x:Name="bedetidPlacering" HorizontalOptions="Center" Margin="20" SelectedIndexChanged="BedetidPlacering_SelectedIndexChanged"  TextColor="Black" FontSize="Large" />
+
+
+       
+            
+
+            <StackLayout x:Name="fajrlayout" Orientation="Horizontal" Margin="10" HorizontalOptions="FillAndExpand" BackgroundColor="WhiteSmoke">
+                <Label Text="Fajr" HorizontalOptions="CenterAndExpand"  TextColor="Black" FontSize="Medium"/>
+                <Label x:Name="label1" HorizontalOptions="CenterAndExpand" TextColor="Black"/>
         </StackLayout>
 
-            <StackLayout Orientation="Horizontal"  Margin="10" HorizontalOptions="Center">
-                <Label Text="Isha" TextColor="DarkGray" FontSize="Medium"/>
-                <Label x:Name="label6" TextColor="DarkGray" />
+            <StackLayout x:Name="shuruklayout"  Orientation="Horizontal" Margin="10" HorizontalOptions="FillAndExpand" BackgroundColor="LightGray">
+                <Label Text="Shuruk" HorizontalOptions="CenterAndExpand" TextColor="Black" FontSize="Medium"/>
+                <Label x:Name="label2" HorizontalOptions="CenterAndExpand" TextColor="Black" />
+        </StackLayout>
+
+          
+
+            <StackLayout x:Name="dhuhrlayout"  Orientation="Horizontal" Margin="10" HorizontalOptions="FillAndExpand" BackgroundColor="WhiteSmoke">
+                <Label Text="Dhuhr" HorizontalOptions="CenterAndExpand" TextColor="Black" FontSize="Medium"/>
+                <Label x:Name="label3" HorizontalOptions="CenterAndExpand" TextColor="Black" />
+        </StackLayout>
+            <StackLayout x:Name="asrlayout" Orientation="Horizontal" Margin="10" HorizontalOptions="FillAndExpand" BackgroundColor="WhiteSmoke">
+                <Label Text="Asr"  HorizontalOptions="CenterAndExpand" TextColor="Black" FontSize="Medium"/>
+                <Label x:Name="label4"  HorizontalOptions="CenterAndExpand" TextColor="Black" />
+        </StackLayout>
+            <StackLayout x:Name="maghriblayout" Orientation="Horizontal" Margin="10"  HorizontalOptions="FillAndExpand" BackgroundColor="WhiteSmoke">
+                <Label Text="Maghrib" HorizontalOptions="CenterAndExpand" TextColor="Black" FontSize="Medium"/>
+                <Label x:Name="label5" HorizontalOptions="CenterAndExpand" TextColor="Black" />
+        </StackLayout>
+
+            <StackLayout x:Name="ishalayout" Orientation="Horizontal"  Margin="10"  HorizontalOptions="FillAndExpand" BackgroundColor="WhiteSmoke">
+                <Label Text="Isha" HorizontalOptions="CenterAndExpand" TextColor="Black" FontSize="Medium"/>
+                <Label x:Name="label6" HorizontalOptions="CenterAndExpand" TextColor="Black" />
             </StackLayout>
-      
-    </StackLayout>
+        </StackLayout>
+
 
     </Grid>
 

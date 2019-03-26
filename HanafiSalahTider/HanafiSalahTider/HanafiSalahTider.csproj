@@ -10,14 +10,33 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="ishatid.txt" />
+    <None Remove="salahtider.txt" />
     <None Remove="salahtider2019.txt" />
+    <None Remove="salahtidermalmo2019.txt" />
+    <None Remove="salahtidermalmoIsha.txt" />
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="ishatid.txt" />
+    <EmbeddedResource Include="salahtider.txt" />
     <EmbeddedResource Include="salahtider2019.txt" />
+    <EmbeddedResource Include="salahtidermalmo2019.txt" />
+    <EmbeddedResource Include="salahtidermalmoIsha.txt" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="DateTimeExtensions" Version="5.4.0" />
+    <PackageReference Include="Xam.Plugins.Notifier" Version="3.0.1" />
     <PackageReference Include="Xamarin.Forms" Version="3.4.0.1008975" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="MainPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
   </ItemGroup>
 </Project>

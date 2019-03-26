@@ -158,9 +158,24 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Salahtider2019.txt" />
+    <None Include="Resources\ishatid.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\salahtidermalmo2019.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\salahtidermalmoIsha.txt" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\background.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\baggrund.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\basmalla.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\icon.png" />
   </ItemGroup>
 </Project>
