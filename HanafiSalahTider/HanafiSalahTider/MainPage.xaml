@@ -5,50 +5,60 @@
              x:Class="HanafiSalahTider.MainPage"            >
  
     <Grid >
-            <Image   Source="/baggrund.png" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" Aspect="AspectFill"/>
-        
-
-        <StackLayout Opacity="30" Margin="70" Orientation="Vertical" HorizontalOptions="FillAndExpand" >
-            
-                <Image   Source="/basmalla.png" HorizontalOptions="Center"/>
-
-                <Picker x:Name="bedetidPlacering" HorizontalOptions="Center" Margin="20" SelectedIndexChanged="BedetidPlacering_SelectedIndexChanged"  TextColor="Black" FontSize="Large" />
-
-
        
-            
+            <Image   Source="/baggrund.png" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" Aspect="AspectFill"/>
 
-            <StackLayout x:Name="fajrlayout" Orientation="Horizontal" Margin="10" HorizontalOptions="FillAndExpand" BackgroundColor="WhiteSmoke">
+        <ScrollView>
+
+            <StackLayout Opacity="30" Margin="70" Orientation="Vertical" HorizontalOptions="FillAndExpand" >
+            
+                <Image   Source="/basmalla.png" Margin="0" HorizontalOptions="Center"/>
+
+                <Picker x:Name="bedetidPlacering" HorizontalOptions="Center" Margin="10" SelectedIndexChanged="BedetidPlacering_SelectedIndexChanged"  TextColor="Black" FontSize="Large" />
+
+
+
+            <StackLayout x:Name="Imsaklayout" Orientation="Horizontal" Margin="5" HorizontalOptions="FillAndExpand" BackgroundColor="LightGray">
+                <Label Text="Imsak" HorizontalOptions="CenterAndExpand"  TextColor="Black" FontSize="Medium"/>
+                <Label x:Name="label0" HorizontalOptions="CenterAndExpand" TextColor="Black"/>
+            </StackLayout>
+
+            <StackLayout x:Name="fajrlayout" Orientation="Horizontal" Margin="5" HorizontalOptions="FillAndExpand" BackgroundColor="WhiteSmoke">
                 <Label Text="Fajr" HorizontalOptions="CenterAndExpand"  TextColor="Black" FontSize="Medium"/>
                 <Label x:Name="label1" HorizontalOptions="CenterAndExpand" TextColor="Black"/>
         </StackLayout>
 
-            <StackLayout x:Name="shuruklayout"  Orientation="Horizontal" Margin="10" HorizontalOptions="FillAndExpand" BackgroundColor="LightGray">
+
+            <StackLayout x:Name="shuruklayout"  Orientation="Horizontal" Margin="5" HorizontalOptions="FillAndExpand" BackgroundColor="LightGray">
                 <Label Text="Shuruk" HorizontalOptions="CenterAndExpand" TextColor="Black" FontSize="Medium"/>
                 <Label x:Name="label2" HorizontalOptions="CenterAndExpand" TextColor="Black" />
         </StackLayout>
 
-          
+            <StackLayout x:Name="zawallayout"  Orientation="Horizontal" Margin="5" HorizontalOptions="FillAndExpand" BackgroundColor="LightGray">
+                <Label Text="Zawal" HorizontalOptions="CenterAndExpand" TextColor="Black" FontSize="Medium"/>
+                <Label x:Name="label7" HorizontalOptions="CenterAndExpand" TextColor="Black" />
+            </StackLayout>
+
 
             <StackLayout x:Name="dhuhrlayout"  Orientation="Horizontal" Margin="10" HorizontalOptions="FillAndExpand" BackgroundColor="WhiteSmoke">
                 <Label Text="Dhuhr" HorizontalOptions="CenterAndExpand" TextColor="Black" FontSize="Medium"/>
                 <Label x:Name="label3" HorizontalOptions="CenterAndExpand" TextColor="Black" />
         </StackLayout>
-            <StackLayout x:Name="asrlayout" Orientation="Horizontal" Margin="10" HorizontalOptions="FillAndExpand" BackgroundColor="WhiteSmoke">
+            <StackLayout x:Name="asrlayout" Orientation="Horizontal" Margin="5" HorizontalOptions="FillAndExpand" BackgroundColor="WhiteSmoke">
                 <Label Text="Asr"  HorizontalOptions="CenterAndExpand" TextColor="Black" FontSize="Medium"/>
                 <Label x:Name="label4"  HorizontalOptions="CenterAndExpand" TextColor="Black" />
         </StackLayout>
-            <StackLayout x:Name="maghriblayout" Orientation="Horizontal" Margin="10"  HorizontalOptions="FillAndExpand" BackgroundColor="WhiteSmoke">
+            <StackLayout x:Name="maghriblayout" Orientation="Horizontal" Margin="5"  HorizontalOptions="FillAndExpand" BackgroundColor="WhiteSmoke">
                 <Label Text="Maghrib" HorizontalOptions="CenterAndExpand" TextColor="Black" FontSize="Medium"/>
                 <Label x:Name="label5" HorizontalOptions="CenterAndExpand" TextColor="Black" />
         </StackLayout>
 
-            <StackLayout x:Name="ishalayout" Orientation="Horizontal"  Margin="10"  HorizontalOptions="FillAndExpand" BackgroundColor="WhiteSmoke">
+            <StackLayout x:Name="ishalayout" Orientation="Horizontal"  Margin="5"  HorizontalOptions="FillAndExpand" BackgroundColor="WhiteSmoke">
                 <Label Text="Isha" HorizontalOptions="CenterAndExpand" TextColor="Black" FontSize="Medium"/>
                 <Label x:Name="label6" HorizontalOptions="CenterAndExpand" TextColor="Black" />
             </StackLayout>
         </StackLayout>
-
+        </ScrollView>
 
     </Grid>
 

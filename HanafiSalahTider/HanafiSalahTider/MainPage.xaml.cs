@@ -13,7 +13,8 @@ namespace HanafiSalahTider
         public MainPage()
         {
             InitializeComponent();
-           ReadFromTxtFile vm = new ReadFromTxtFile();
+
+            ReadFromTxtFile vm = new ReadFromTxtFile();
            DateTime dt = DateTime.Now;
              
             this.BindingContext = vm;
@@ -22,10 +23,12 @@ namespace HanafiSalahTider
 
             bedetidPlacering.Items.Add("Malmö");
             bedetidPlacering.Items.Add("København");
+            bedetidPlacering.Items.Add("Stockholm");
+
             bedetidPlacering.SelectedIndex = 1;
             bedetidPlacering.Focus();
             loadPrayerTimes();
-          //  CurrentSalahTime();
+           CurrentSalahTime();
 
 
 
@@ -41,9 +44,15 @@ namespace HanafiSalahTider
                 loadPrayerTimes();
             }
 
-            else
+            else if(bedetidPlacering.SelectedIndex == 0)
                     {
                 vm.getText(DateTime.Now, "HanafiSalahTider.salahtidermalmo2019.txt", "HanafiSalahTider.salahtidermalmoIsha.txt");
+                loadPrayerTimes();
+            }
+
+            else
+            {
+                vm.getText(DateTime.Now, "HanafiSalahTider.stockholmtid.txt", "HanafiSalahTider.stockholmtidIsha.txt");
                 loadPrayerTimes();
             }
 
@@ -79,6 +88,15 @@ namespace HanafiSalahTider
             }
 
             Start = new TimeSpan(rtxt.Isha.Hour, rtxt.Isha.Minute, 0);
+            End = new TimeSpan(23, 59, 0);
+
+            if (Current >= Start && Current <= End)
+            {
+                ishalayout.BackgroundColor = Color.LawnGreen;
+            }
+
+            Start = new TimeSpan(0, 0, 0);
+
             End = new TimeSpan(rtxt.Fajr.Hour, rtxt.Fajr.Minute, 0);
 
             if (Current >= Start && Current < End)
@@ -93,37 +111,39 @@ namespace HanafiSalahTider
             {
                 fajrlayout.BackgroundColor = Color.LawnGreen;
             }
+            var shuruk = rtxt.Shuruk.AddMinutes(25);
+            TimeSpan ShurukEnd = new TimeSpan(shuruk.Hour, shuruk.Minute, 0);
 
             Start = new TimeSpan(rtxt.Shuruk.Hour, rtxt.Shuruk.Minute, 0);
-            End = new TimeSpan(rtxt.Dhuhr.Hour, rtxt.Dhuhr.Minute, 0);
-            var shuruk = rtxt.Shuruk.AddMinutes(25);
-            TimeSpan Shuruk = new TimeSpan(shuruk.Hour, shuruk.Minute, 0);
-            if (Current > Start && Current < End)
+            End = new TimeSpan(ShurukEnd.Hours, ShurukEnd.Minutes, 0);
+
+
+
+
+
+            if (Current >= Start && Current < ShurukEnd)
             {
+                shuruklayout.BackgroundColor = Color.Red;
 
-
-                if (Current >= Shuruk && Current < End)
-                {
-                    shuruklayout.BackgroundColor = Color.Red;
-
-                }
-
-                var zawal = rtxt.Dhuhr.AddMinutes(-10);
-                TimeSpan Zawal = new TimeSpan(zawal.Hour, zawal.Minute, 0);
-                if (Current > Start && Current < End)
-                {
-                    if (Current >= Zawal && Current < End)
-                    {
-                    //    zawallayout.BackgroundColor = Color.Red;
-
-                    }
-                }
             }
+
+            var zawal = rtxt.Dhuhr.AddMinutes(-10);
+            End = new TimeSpan(rtxt.Dhuhr.Hour, rtxt.Dhuhr.Minute, 0);
+
+            TimeSpan Zawal = new TimeSpan(zawal.Hour, zawal.Minute, 0);
+          
+                if (Current >= Zawal && Current < End)
+                {
+                    zawallayout.BackgroundColor = Color.Red;
+
+                }
+
+            
         }
 
         private void loadPrayerTimes()
         {
-            //label0.Text = ReadFromTxtFile.Instanstider.Imsak.ToString("H:mm");
+            label0.Text = ReadFromTxtFile.Instanstider.Imsak.ToString("H:mm");
             label1.Text = ReadFromTxtFile.Instanstider.Fajr.ToString("H:mm");
             label2.Text = ReadFromTxtFile.Instanstider.Shuruk.ToString("H:mm");
             label3.Text = ReadFromTxtFile.Instanstider.Dhuhr.ToString("H:mm");

@@ -129,9 +129,11 @@ namespace HanafiSalahTider
 
    
 
-            if (dateTime > date2 && dateTime <= date1)
+            if (dateTime >= date1 && dateTime < date2)
             {
-              Instanstider.Fajr =  Instanstider.Fajr.AddHours(1);
+                Instanstider.Imsak = Instanstider.Imsak.AddHours(1);
+
+                Instanstider.Fajr =  Instanstider.Fajr.AddHours(1);
                 Instanstider.Shuruk = Instanstider.Shuruk.AddHours(1);
                 Instanstider.Dhuhr = Instanstider.Dhuhr.AddHours(1);
                 Instanstider.Asr = Instanstider.Asr.AddHours(1);
