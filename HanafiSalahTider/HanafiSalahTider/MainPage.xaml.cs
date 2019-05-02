@@ -40,19 +40,19 @@ namespace HanafiSalahTider
 
             if(bedetidPlacering.SelectedIndex == 1)
             {
-                vm.getText(DateTime.Now, "HanafiSalahTider.salahtider.txt", "HanafiSalahTider.ishatid.txt");
+                vm.getText(DateTime.Now, DateTime.Now, "HanafiSalahTider.salahtider.txt", "HanafiSalahTider.ishatid.txt");
                 loadPrayerTimes();
             }
 
             else if(bedetidPlacering.SelectedIndex == 0)
                     {
-                vm.getText(DateTime.Now, "HanafiSalahTider.salahtidermalmo2019.txt", "HanafiSalahTider.salahtidermalmoIsha.txt");
+                vm.getText(DateTime.Now, DateTime.Now, "HanafiSalahTider.salahtidermalmo2019.txt", "HanafiSalahTider.salahtidermalmoIsha.txt");
                 loadPrayerTimes();
             }
 
             else
             {
-                vm.getText(DateTime.Now, "HanafiSalahTider.stockholmtid.txt", "HanafiSalahTider.stockholmtidIsha.txt");
+                vm.getText(DateTime.Now, DateTime.Now, "HanafiSalahTider.stockholmtid.txt", "HanafiSalahTider.stockholmtidIsha.txt");
                 loadPrayerTimes();
             }
 

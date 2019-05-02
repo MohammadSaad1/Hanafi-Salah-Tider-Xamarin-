@@ -16,28 +16,31 @@ namespace HanafiSalahTider
     public  class ReadFromTxtFile : INotifyPropertyChanged
     {
         string line = "";
+        int i = 0;
 
         string[] prayertimes;
         private string[] prayertimesIsha;
+        private string[] prayertimesFajr;
 
         public static Tider Instanstider { get; set; }
 
         public ReadFromTxtFile()
         {
             Instanstider = new Tider();
-            getText(DateTime.Now, "HanafiSalahTider.salahtider.txt", "HanafiSalahTider.ishatid.txt");
+            getText(DateTime.Now, DateTime.Now, "HanafiSalahTider.salahtider.txt", "HanafiSalahTider.ishatid.txt");
             SalahNotification();
         }
 
 
-        public void getText(DateTime dateTime, String timepath, String timepathIsha)
+        public void getText(DateTime dateTime, DateTime datetimeFajr, String timepath, String timepathIsha)
         {
 
            String date = getDateString(dateTime);
-            
-          
-          
-          String fileContent = getStreamFromTxtFile(timepath);
+            String dateFajr = getDateString(datetimeFajr);
+
+
+
+            String fileContent = getStreamFromTxtFile(timepath);
           String fileContentIsha = getStreamFromTxtFile(timepathIsha);
 
 
@@ -47,26 +50,26 @@ namespace HanafiSalahTider
 
                 string[] apts = fileContent.Split('\n').Where(x => x.Contains(date)).ToArray();
                 string[] aptsIsha = fileContentIsha.Split('\n').Where(x => x.Contains(date)).ToArray();
+                string[] aptsFajr = fileContent.Split('\n').Where(x => x.Contains(dateFajr)).ToArray();
 
                 prayertimes = apts[0].Split(new[] { "   ", "  "}, StringSplitOptions.None);
+                prayertimesFajr = aptsFajr[0].Split(new[] { "   ", "  " }, StringSplitOptions.None);
+   
                 prayertimesIsha = aptsIsha[0].Split(new[] { "   ", "  " }, StringSplitOptions.None);
                 DateTime dt;
 
-                string[] nytider = prayertimes[3].Split();
+                string[] nytider = prayertimesFajr[3].Split();
                 if (nytider[1].Trim() == "@7")
                 {
-                    dt = new DateTime(dateTime.Year, dateTime.Month, dateTime.Day, 00, 33, 0);
- 
+                    getText(dateTime, datetimeFajr.AddDays(-1), timepath, timepathIsha);
+                    nytider = prayertimesFajr[3].Split();
+
+                    dt = new DateTime(dateTime.Year, dateTime.Month, dateTime.Day, int.Parse(nytider[1]), int.Parse(nytider[2]), 0);
+                    Instanstider.Fajr = dt;
+                    Instanstider.Imsak = dt.AddMinutes(-4);
 
                 }
                 
-                else
-
-                {
-                    dt = new DateTime(dateTime.Year,dateTime.Month,dateTime.Day, int.Parse(nytider[1]), int.Parse(nytider[2]), 0);
-                }
-                Instanstider.Fajr = dt;
-                Instanstider.Imsak = dt.AddMinutes(-4);
 
                 nytider = prayertimes[4].Split();
                 dt = new DateTime(dateTime.Year, dateTime.Month, dateTime.Day, int.Parse(nytider[1]), int.Parse(nytider[2]), 0);
@@ -90,19 +93,21 @@ namespace HanafiSalahTider
                     dt = new DateTime(dateTime.Year, dateTime.Month, dateTime.Day, 23, 0, 0);
                 }
 
-                else if (int.Parse(nytider[1]) >= 23)
+                dt = new DateTime(dateTime.Year, dateTime.Month, dateTime.Day, int.Parse(nytider[1]), int.Parse(nytider[2]), 0);
+
+                Instanstider.Isha = dt;
+                SummerWinterTime(dateTime);
+
+
+                 if (Instanstider.Isha.Hour >= 23)
                 {
-                    dt = new DateTime(dateTime.Year, dateTime.Month, dateTime.Day, 23, 0, 0);
+                    Instanstider.Isha = new DateTime(dateTime.Year, dateTime.Month, dateTime.Day, 23, 0, 0);
                 }
 
-                else { 
-                dt = new DateTime(dateTime.Year, dateTime.Month, dateTime.Day, int.Parse(nytider[1]), int.Parse(nytider[2]), 0);
-                }
-                Instanstider.Isha = dt;
+                
 
             }
 
-            SummerWinterTime(dateTime);
 
         }
 
