@@ -34,6 +34,7 @@ namespace HanafiSalahTider
 
         public void getText(DateTime dateTime, DateTime datetimeFajr, String timepath, String timepathIsha)
         {
+            dateTime = DateTime.Now.AddDays(-1);
 
            String date = getDateString(dateTime);
             String dateFajr = getDateString(datetimeFajr);
@@ -64,12 +65,13 @@ namespace HanafiSalahTider
                     getText(dateTime, datetimeFajr.AddDays(-1), timepath, timepathIsha);
                     nytider = prayertimesFajr[3].Split();
 
-                    dt = new DateTime(dateTime.Year, dateTime.Month, dateTime.Day, int.Parse(nytider[1]), int.Parse(nytider[2]), 0);
-                    Instanstider.Fajr = dt;
-                    Instanstider.Imsak = dt.AddMinutes(-4);
-
+                   
                 }
-                
+
+                dt = new DateTime(dateTime.Year, dateTime.Month, dateTime.Day, int.Parse(nytider[1]), int.Parse(nytider[2]), 0);
+
+                Instanstider.Fajr = dt;
+                Instanstider.Imsak = dt.AddMinutes(-4);
 
                 nytider = prayertimes[4].Split();
                 dt = new DateTime(dateTime.Year, dateTime.Month, dateTime.Day, int.Parse(nytider[1]), int.Parse(nytider[2]), 0);
@@ -88,23 +90,30 @@ namespace HanafiSalahTider
                 Instanstider.Maghrib = dt.AddMinutes(4);
 
                 nytider = prayertimesIsha[9].Split();
-                if (nytider[1].Trim() == "@7")
+                if (nytider[1].Trim() == "@7" )
                 {
                     dt = new DateTime(dateTime.Year, dateTime.Month, dateTime.Day, 23, 0, 0);
+                    SummerWinterTime(dateTime);
+
+                    Instanstider.Isha = dt;
+
                 }
 
-                dt = new DateTime(dateTime.Year, dateTime.Month, dateTime.Day, int.Parse(nytider[1]), int.Parse(nytider[2]), 0);
+                else { 
+                    dt = new DateTime(dateTime.Year, dateTime.Month, dateTime.Day, int.Parse(nytider[1]), int.Parse(nytider[2]), 0);
 
-                Instanstider.Isha = dt;
-                SummerWinterTime(dateTime);
+                    Instanstider.Isha = dt;
+
+                    SummerWinterTime(dateTime);
+
+                    if (Instanstider.Isha.Hour >= 23 || Instanstider.Isha.Hour == 0)
+                    {
+                        Instanstider.Isha = new DateTime(dateTime.Year, dateTime.Month, dateTime.Day, 23, 0, 0);
+                    }
 
 
-                 if (Instanstider.Isha.Hour >= 23)
-                {
-                    Instanstider.Isha = new DateTime(dateTime.Year, dateTime.Month, dateTime.Day, 23, 0, 0);
                 }
 
-                
 
             }
 

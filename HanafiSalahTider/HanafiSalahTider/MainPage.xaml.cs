@@ -24,6 +24,7 @@ namespace HanafiSalahTider
             bedetidPlacering.Items.Add("Malmö");
             bedetidPlacering.Items.Add("København");
             bedetidPlacering.Items.Add("Stockholm");
+            bedetidPlacering.Items.Add("BrøndbyStrand");
 
             bedetidPlacering.SelectedIndex = 1;
             bedetidPlacering.Focus();
@@ -50,12 +51,19 @@ namespace HanafiSalahTider
                 loadPrayerTimes();
             }
 
-            else
+            else if(bedetidPlacering.SelectedIndex == 2)
             {
                 vm.getText(DateTime.Now, DateTime.Now, "HanafiSalahTider.stockholmtid.txt", "HanafiSalahTider.stockholmtidIsha.txt");
                 loadPrayerTimes();
             }
 
+
+
+            else if (bedetidPlacering.SelectedIndex == 3)
+            {
+                vm.getText(DateTime.Now, DateTime.Now, "HanafiSalahTider.brondby_tider.txt", "HanafiSalahTider.brondby_isha.txt");
+                loadPrayerTimes();
+            }
         }
 
         private void CurrentSalahTime()

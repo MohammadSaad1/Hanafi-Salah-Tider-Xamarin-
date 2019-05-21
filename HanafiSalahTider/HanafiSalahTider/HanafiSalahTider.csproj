@@ -10,6 +10,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="brondby_isha.txt" />
+    <None Remove="brondby_tider.txt" />
     <None Remove="ishatid.txt" />
     <None Remove="salahtider.txt" />
     <None Remove="salahtider2019.txt" />
@@ -20,6 +22,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="brondby_isha.txt" />
+    <EmbeddedResource Include="brondby_tider.txt" />
     <EmbeddedResource Include="ishatid.txt" />
     <EmbeddedResource Include="salahtider.txt" />
     <EmbeddedResource Include="salahtider2019.txt" />

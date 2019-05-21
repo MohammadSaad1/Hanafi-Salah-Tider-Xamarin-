@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.companyname.HanafiSalahTider" android:versionName="1.0" android:installLocation="preferExternal" android:versionCode="690">
-	<uses-sdk android:targetSdkVersion="28" android:minSdkVersion="22" />
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.companyname.HanafiSalahTider" android:versionName="1.0" android:installLocation="internalOnly" android:versionCode="695">
+	<uses-sdk android:minSdkVersion="22" android:targetSdkVersion="28" />
 	<application android:label="HanafiSalahTider.Android" android:icon="@mipmap/launcher_foreground"></application>
 </manifest>
